@@ -304,6 +304,10 @@ Metrics chosen for identifying anomaly:
     \item Mean squared error (MSE) see Figure~\ref{fig:MSE}
 \end{itemize}
 
+The trend plots show the contribution of each component in area to the reconstruction (Figure~\ref{fig:trend_plots}). The mean and standard deviation are shown in the labels for both the training and fake test data. If the contribution of any component in the test data falls outside the range of the training mean \( \pm\,2\sigma \), the corresponding LS is considered an outlier. In particular, the components for LS~3 clearly fall outside the expected range. Additionally, component~4 does not contribute to the reconstruction of the test data.
+
+The Euclidean distance error was calculated for the training data by first determining the center of the training dataset in the latent space. This center represents the average position of all lumisections (LSs) across the defined components. The distance of each LS to this center is then computed. A cut is established as the mean \( \pm\,2\sigma \). Any LS from the test dataset whose distance exceeds this threshold is flagged as anomalous. This method successfully flags LSs starting from the 3rd one, which aligns well with the known shift applied to the fake data. Although the 2nd LS is also synthetic, the shift in its distribution is too small to be detected by this criterion.
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{1\textwidth}
@@ -315,7 +319,7 @@ Metrics chosen for identifying anomaly:
         \centering
         \includegraphics[width=\textwidth]{images/trend_fake.png}
     \end{subfigure}
-    \caption{Trend plots.}
+    \caption{Trend plots showing the percentage area contribution of each component to the reconstruction. The top row displays trends from the training data, with the mean and standard deviation for each component indicated in the legend. The bottom row presents trends from the fake test data, where both training and test statistics (mean and standard deviation) are shown for comparison.}
     \label{fig:trend_plots}
 \end{figure}
 
@@ -330,9 +334,13 @@ Metrics chosen for identifying anomaly:
         \centering
         \includegraphics[width=\textwidth]{images/euclid_test_fake.png}
     \end{subfigure}
-    \caption{Something.}
+    \caption{Euclidean distance error for the training data (top) and test data (bottom). A threshold, defined from the training data (indicated by the green horizontal line), is applied to the test data to identify anomalous behavior.}
     \label{fig:euc_distance}
 \end{figure}
+
+The MSE is calculated for the training data, with a threshold defined at 99\%. LSs from the training data that exceed this threshold are excluded from further consideration. When the same criterion is applied to the test data, LS~3 and subsequent LSs are flagged as anomalous, which aligns well with the results obtained using the previous metrics.
+
+All of the applied metrics yield consistent and reasonable results. Although they may require further tuning to minimize false positives when applied to real data, the underlying concept is effective. The approach is extendable to other MEs, with the primary goal being to deploy the model on real collision data from the 2024 run. Each metric will assign an anomaly score to any LS identified as anomalous, providing a quantitative basis for further investigation.
 
 \begin{figure}[H]
     \centering
@@ -345,6 +353,6 @@ Metrics chosen for identifying anomaly:
         \centering
         \includegraphics[width=\textwidth]{images/MSE_test.png}
     \end{subfigure}
-    \caption{MSE.}
+    \caption{MSE error for the training data (top) and test data (bottom). A threshold, defined from the training data (indicated by the green horizontal line), is applied to the test data to identify anomalous behavior.}
     \label{fig:MSE}
 \end{figure}

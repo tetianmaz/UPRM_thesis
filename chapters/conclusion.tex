@@ -4,21 +4,14 @@
 
 \chapter{Conclusions}
 
-% \section{Section}
-% \noindent \lipsum[1][1-5] %WRITE HERE
+Charge Bin analyses were conducted in order to study the effect of delta-ray candidates on detector performance. Secondary interactions within the silicon sensors were indirectly observed by studying the cluster size dependency on charge Bins (see Figure~\ref{fig:cluster_bins_vs_size}). As expected, Bin~0 tracks, representing delta-ray production, worsened the accuracy of the measurement. This impact can be observed in the resolution comparison in Figure~\ref{fig:resolution_size_1&3}, where size 3 clusters have worse resolution than size 1 clusters. In addition, Bin~0 contains a larger proportion of size 3 clusters than any other charge bin, which validates the conclusion that delta-ray candidates create additional uncertainty for track reconstruction.
 
+X and Y direction predicted errors were studied for various requirements of track selection. The baseline requirement required that each track cross at least 13 of the 16 planes. Enforcing a more stringent requirement that tracks must cross all four planes of pixels resulted in a significant improvement in the measurement precision (see Figure~\ref{fig:X_Y_Predicted_Errors}). The improvement is due to the reduction in uncertainty achieved by removing tracks that were not detected in the DUT but were recorded by other planes. Additionally, the exclusion of Bin~0 tracks on all pixel planes provided a minor improvement in precision, although the effect was relatively small.
 
-% \noindent \lipsum[1][1-5] %WRITE HERE
+The X and Y residuals were tested under the same conditions as the predicted X and Y errors (see Figure~\ref{fig:X_Y_Residual_planes}). For the Y residuals, the expected behavior was observed: forcing tracks to pass through all four pixel planes caused increased resolution, with a slight additional improvement when Bin~0 tracks were eliminated. But for the X residuals, accuracy surprisingly deteriorated under identical track constraint. The reason why this happens has yet to be understood and requires further investigation. A similar behavior was observed in the X and Y residuals for clusters with size~1 (see Figure~\ref{fig:X_Y_Residual_size_1_planes}).
 
+In addition, a preliminary investigation was conducted for the asymmetry plots (see Figure~\ref{fig:asymmetry_bins}). The expectation was that crosstalk would be largest in Bin~0. However, since the number of entries in Bin~0 is significantly lower compared to the other charge bins, it was difficult to make any conclusions. Furthermore, a metric for quantifying crosstalk is still necessary. It was observed that the high asymmetry populations correspond to crosstalk effects, while the data points between the populations appear to be associated with charge sharing.
 
-% \subsection{Subsection}
-% \noindent \lipsum[1][1-5] %WRITE HERE
+Moreover, the efficiency of the NMF model for anomaly detection was investigated. This model is expected to be beneficial for automation and for performing pre-checks on data integrity before manual inspection by shifters. The reconstruction of the true data was successful, and it was observed that the fake lumisections (LSs) were reconstructed primarily using the third component (see Figures~\ref{fig:reconstruction, fig:components}), which is the only basis histogram peaking to the left. Additionally, the number of components chosen for this case appears to be appropriate, as increasing it would have likely resulted in noisy or less interpretable basis histograms.
 
-
-% \noindent \lipsum[1][1-5] %WRITE HERE
-
-% \subsection{Subsection}
-% \noindent \lipsum[1][1-5] %WRITE HERE
-
-
-% \noindent \lipsum[1][1-5] %WRITE HERE
+Based on all the metrics evaluated, the current threshold cuts seem well-defined, as only the first two LSs pass the criteria—and it is known that only the first LS corresponds to actual (true) data. These thresholds may need further tuning in the future to avoid false positives. Nevertheless, the initial effectiveness of the model has been demonstrated and the approach will be extended to perform similar studies for other monitoring elements (MEs).
