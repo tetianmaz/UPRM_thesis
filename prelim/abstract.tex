@@ -11,6 +11,16 @@
 
 \noindent
 
+Stable and precise tracking performance is a demand of the CMS experiment for preparation for the larger data rates and luminosity of the HL-LHC. Two analyses are addressing the issues in data quality monitoring and detector characterization of importance for this upgrade, are presented in this thesis.
+
+The first analysis is the effect of charge depositions on planar pixel sensor spatial resolution with Testbeam data. By binning charge deposits according to the Landau-like distribution, the contribution of delta-ray production to cluster size and resolution was examined. High-charge hits, typically corresponding to secondary interactions, were found to worsen spatial resolution of the telescope in the sense of enlarging cluster size. The charge sharing and crosstalk effects were also studied with asymmetry distributions, with special attention to the significance of charge binning for the effect description.
+
+Automation of Data Quality Monitoring (DQM) using unsupervised anomaly detection through Non-negative Matrix Factorization (NMF) is the second study. The technique uses a set of detection parameters to mark lumisections (LSs) not typical of the training sample. It was then tested with some test data sets that were synthetically shifted, containing a few anomalies. The trained model on CMS data validated charge distributions. Results indicate the technique's resilience to support shifters and reducing human inspection dependence in HL-LHC operation.
+
+Together, these investigations additively contribute towards improved knowledge of pixel detector performance and large-scale tool development for automatic monitoring in CMS.
+
+
+
 
 %____________________________________________________________
 
@@ -25,11 +35,22 @@
 
 %__________   ABSTRACT ESPANOL  ______________________________
 
-% \vspace*{0.5in}
-% \begin{center}
-% \section*{RESUMEN}
-% \end{center}
-% %\addcontentsline{toc}{section}{RESUMEN} %para que aparezca en la tabla de contenido
+\vspace*{0.5in}
+\begin{center}
+\section*{RESUMEN}
+\end{center}
+
+El rendimiento estable y preciso del sistema de trazado es una necesidad para el experimento CMS, en preparación para las mayores tasas de datos y luminosidad que traerá el HL-LHC. Esta tesis presenta dos análisis que abordan problemas importantes relacionados con el monitoreo de calidad de datos y la caracterización del detector, relevantes para esta actualización.
+
+El primer análisis estudia el efecto de los depósitos de carga sobre la resolución espacial de sensores de píxeles planos, utilizando datos de test beam. Agrupando los valores de carga en bins definidos según la distribución tipo Landau, se investigó cómo la producción de rayos delta afecta al tamaño del clúster y a la resolución. Se observó que los eventos con alta carga, usualmente asociados a interacciones secundarias, empeoran la resolución del telescopio debido al aumento en el tamaño de los clústeres. También se estudiaron los efectos de compartición de carga y crosstalk usando distribuciones de asimetría, destacando la utilidad del uso de bins de carga para describir estos efectos.
+
+El segundo estudio trata sobre la automatización del Monitoreo de Calidad de Datos (DQM) mediante detección de anomalías no supervisada usando Factorización en Matrices No Negativas (NMF). El modelo se entrenó con distribuciones de carga validadas de datos CMS, y luego se probó usando datos de prueba sintéticos con anomalías. Se usaron varias métricas para marcar los lumisecciones (LS) que se alejan del conjunto de entrenamiento. Los resultados muestran que el método puede ser útil para asistir a los shifters y reducir la carga de inspección manual durante la operación del HL-LHC.
+
+Ambos estudios aportan al entendimiento del funcionamiento de los sensores de píxeles y al desarrollo de herramientas que permitan un monitoreo más automatizado dentro de CMS.
+
+
+% \addcontentsline{toc}{section}{RESUMEN} 
+%para que aparezca en la tabla de contenido
 
 % \noindent
 % El Resumen debe ser una traduccion del Abstract. No deben diferir en contenido. % PASTE YOUR RESUMEN HERE (DELETE \blindtext)
